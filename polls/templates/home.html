@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Questions List:</h1>
+    <ol>
+        {% for question in questionsListHTML %}
+            <li>
+                <a href="{% url 'question_details' question.id %}">{{question.question_text}}</a>
+                <span>{{question.pub_date}}, Title : {{question.title}}</span>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock  %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ questionIdHTML.question_text }}</h1>
+
+<form action="#" method="post">
+    {% csrf_token %}
+    {% for choice in choicesHTML %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+</form>
+
+    {% comment %} without using form
+    {% for choice in choicesHTML %}
+        <input type="radio"> {{ choice.choice_text }}
+    {% endfor %}
+    {% endcomment %}
+
+{% endblock  %}
